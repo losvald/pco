@@ -1,0 +1,17 @@
+@
+seller_id = 1
+purchasable_id = 1
+quantity = 5
+@
+seller_id = 1
+purchasable_id = 1
+quantity = 5
+@
+seller_id = 1
+purchasable_id = 1
+quantity = 5
+@
+seller_id = 1
+purchasable_id = 1
+quantity = 5
+

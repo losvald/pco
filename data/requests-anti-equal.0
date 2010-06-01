@@ -1,0 +1,11 @@
+@1
+name = Zahtjev: 3x sendvic
+substr-name = sendvic
+quantity = 3
+@2
+name = Zahtjev: 1x sok
+match-id = 2
+@3
+name = Bilo sto
+
+

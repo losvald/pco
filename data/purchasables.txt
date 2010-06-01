@@ -1,0 +1,39 @@
+#@(purchasable_id)
+#(key) = (value)
+#name = (purchasable_name)
+
+@1
+name = olovka
+category = pencils
+@2
+name = gumica
+category = skolski pribor
+@3
+name = ravnalo
+category = skolski pribor
+@4
+name = sladoled
+category = slastice
+@5
+name = biljeznica
+category = skolski pribor
+@6
+name = mlijeko DUKAT, 1L
+category = mlijecni proizvodi
+@7
+name = mlijeko z'bregov, 1L
+category = mlijecni proizvodi
+@8
+name = cokoladno mlijeko DUKAT, 0.5 L
+category = mlijecni proizvodi
+@9
+name = cokoladno mlijeko z'bregov, 0.5 L
+category = mlijecni proizvodi
+@10
+name = nutela
+@11
+name = maticna ploca ASUS P5LD2
+
+#@
+#name =
+#category =

@@ -1,0 +1,30 @@
+<ECF>
+	<Algorithm>
+		<SteadyStateTournament>
+			<Entry key="tsize">3</Entry>
+		</SteadyStateTournament>
+	</Algorithm>
+
+	<Genotype>
+		<Binary>
+			<Entry key="lbound">0</Entry>
+			<Entry key="ubound">10</Entry>
+			<Entry key="precision">0</Entry>
+			<Entry key="dimension">5</Entry>
+		</Binary>
+	</Genotype>
+
+	<Registry>
+		<Entry key="randomizer.seed">0</Entry> 
+		<Entry key="population.size">30</Entry>
+		<Entry key="population.demes">15</Entry> <!-- number of demes (default: 1) -->
+		<Entry key="migration.number">1</Entry> <!-- number of individuals to be sent to another deme (default: 1) -->
+		<Entry key="mutation.indprob">0.8</Entry> <!-- individual mutation probability (regardless of the algorithm!) (default: 0.3) -->
+		<Entry key="term.stagnation">50</Entry>
+		<Entry key="log.level">3</Entry>
+		<Entry key="log.filename">log.txt</Entry>
+		<Entry key="milestone.filename">out.txt</Entry> 
+		<Entry key="milestone.interval">0</Entry> 
+	</Registry>
+</ECF>
+

@@ -1,0 +1,58 @@
+#@(offer_id)
+#(property_name) = (property_value)
+#Property format for key properties
+#seller_id = (seller_id)
+#price = (value) [currency = (defaultCurrency)]
+#includes = (purchasable_id [x(quantity) = x1]), ...
+#
+!1
+seller_id = 1
+name = 10L DUKAT mlijeka
+price = 40 HRK
+includes = 10x 6
+quantity = 2
+wholesale_prices = 3-5: 30 HRK | 6-10: 20 HRK | 11+: 15 HRK
+!2
+name = Olovka, gumica
+seller_id = 1
+price = 3 HRK
+includes = 1
+wholesale_prices = 10-20: 2 HRK | 100-200: 1 HRK
+!3
+name = 10L z'bregov mlijeka
+seller_id = 3
+price = 39 HRK
+includes = 10x 6
+!4
+seller_id = 3
+price = 0.1 USD
+includes = 1
+!5
+seller_id = 3
+price = 1 EUR
+includes = 2
+!6
+seller_id = 4
+name = 10L DUKAT mlijeka
+price = 38 HRK
+includes = 10x 6
+!7
+seller_id = 3
+name = 10L DUKAT mlijeka
+price = 40 HRK
+includes = 10x 6
+!8
+seller_id = 2
+name = 10L DUKAT mlijeka
+price = 42 HRK
+includes = 10x 6
+!9
+seller_id = 2
+name = 1L DUKAT mlijeko
+price = 6 HRK
+includes = 6
+!10
+seller_id = 4
+name = 1L DUKAT mlijeko
+price = 5 HRK
+includes = 6

@@ -1,0 +1,26 @@
+#
+#
+
+@1
+name = Kaufland, Ravnice, Zagreb
+defaultCurrency = HRK
+
+@2
+name = Getro, Utrine, Zagreb
+defaultCurrency = HRK
+
+@3
+name = King-Cross centar ZAGREB
+defaultCurrency = HRK
+
+@4
+name = Mercator
+defaultCurrency = HRK
+
+@5
+name = ebay seller#132515
+defaultCurrency = USD
+
+@6
+name = Walmart
+defaultCurrency = USD

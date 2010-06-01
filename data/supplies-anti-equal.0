@@ -1,0 +1,13 @@
+@
+seller_id = 1
+purchasable_id = 1
+quantity = 10
+@
+seller_id = 1
+purchasable_id = 2
+quantity = 7
+@
+seller_id = 1
+purchasable_id = 3
+quantity = 100
+

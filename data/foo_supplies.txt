@@ -1,0 +1,44 @@
+@
+seller_id = 0
+purchasable_id = 1
+quantity = 24
+@
+seller_id = 0
+purchasable_id = 2
+quantity = 28
+@
+seller_id = 0
+purchasable_id = 3
+quantity = 24
+@
+seller_id = 0
+purchasable_id = 4
+quantity = 26
+@
+seller_id = 0
+purchasable_id = 5
+quantity = 20
+@
+seller_id = 0
+purchasable_id = 6
+quantity = 22
+@
+seller_id = 0
+purchasable_id = 7
+quantity = 25
+@
+seller_id = 0
+purchasable_id = 8
+quantity = 24
+@
+seller_id = 0
+purchasable_id = 9
+quantity = 28
+@
+seller_id = 0
+purchasable_id = 10
+quantity = 24
+@
+seller_id = 0
+purchasable_id = 11
+quantity = 27

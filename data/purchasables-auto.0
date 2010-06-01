@@ -1,0 +1,18 @@
+#@(purchasable_id)
+#(key) = (value)
+#name = (purchasable_name)
+
+@1
+name = olovka
+category = pencils
+@2
+name = gumica
+category = skolski pribor
+@3
+name = ravnalo
+category = skolski pribor
+
+
+#@
+#name =
+#category =

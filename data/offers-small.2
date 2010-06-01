@@ -1,0 +1,63 @@
+#@(offer_id)
+#(property_name) = (property_value)
+#Property format for key properties
+#seller_id = (seller_id)
+#price = (value) [currency = (defaultCurrency)]
+#includes = (purchasable_id [x(quantity) = x1]), ...
+#
+!1
+seller_id = 1
+name = sendvic
+price = 10 HRK
+includes = 1
+wholesale_prices = 3-5: 9 HRK | 6-10: 8 HRK | 11+: 7.5 HRK
+
+!2
+seller_id = 1
+name = sok
+price = 6 HRK
+includes = 2 x1
+wholesale_prices = 6-11: 5 HRK | 12-23: 4.5 HRK
+
+!3
+seller_id = 1
+name = sendvic + sok
+price = 15 HRK
+includes = 1, 2
+wholesale_prices = 2-3: 14 HRK | 4+: 13 HRK
+
+!4
+seller_id = 1
+name = sok + slamka
+price = 6.4 HRK
+includes = 2 x1, 3
+wholesale_prices = 3+: 5.9 HRK
+
+!5
+seller_id = 1
+name = slamka
+price = 0.50 HRK
+includes = 3
+wholesale_prices =  2-4: 0.3 HRK | 5-9: 0.25 HRK | 10+: 0.2 HRK
+
+!6
+seller_id = 1
+name = 2x sendvic + 3x sok
+price = 15 HRK
+includes = 1 x2, 2 x3
+wholesale_prices = 2-3: 30 HRK | 4+: 25 HRK
+
+!7
+seller_id = 1
+name = 3x sendvic + 2x sok
+price = 15 HRK
+includes = 1 x3, 2 x2
+wholesale_prices = 2-3: 26 HRK | 4+: 23 HRK
+
+!8
+seller_id = 1
+name = sendvic + sok
+price = 15 HRK
+includes = 1 x7, 2 x1
+wholesale_prices = 2-3: 50 HRK | 4+: 40 HRK
+

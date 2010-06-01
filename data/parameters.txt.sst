@@ -1,0 +1,28 @@
+<ECF>
+	<Algorithm>
+		<SteadyStateTournament>
+			<Entry key="tsize">4</Entry>
+		</SteadyStateTournament>
+	</Algorithm>
+
+	<Genotype>
+		<Binary>
+			<Entry key="lbound">0</Entry>
+			<Entry key="ubound">200</Entry>
+			<Entry key="precision">0</Entry>
+			<Entry key="dimension">20</Entry>
+		</Binary>
+	</Genotype>
+
+	<Registry>
+		<Entry key="randomizer.seed">0</Entry> 
+		<Entry key="population.size">30</Entry>
+		<Entry key="mutation.indprob">0.3</Entry>
+		<Entry key="term.stagnation">50</Entry>
+		<Entry key="log.level">3</Entry>
+		<Entry key="log.filename">log.txt</Entry>
+		<Entry key="milestone.filename">out.txt</Entry> 
+		<Entry key="milestone.interval">0</Entry> 
+	</Registry>
+</ECF>
+

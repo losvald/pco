@@ -1,0 +1,12 @@
+!0
+includes = 5x 9
+name = offer0
+price = 28.500000HRK
+seller_id = 0
+wholesale_prices = 3-22: 27.070000 HRK | 23-69: 25.650000 HRK | 70-116: 24.790000 HRK | 117-193: 24.220000 HRK | 194-285: 23.650000 HRK | 286-386: 22.800000 HRK
+!1
+includes = 8x 5
+name = offer1
+price = 800.000000HRK
+seller_id = 0
+wholesale_prices = 4-24: 760.000000 HRK | 25-73: 720.000000 HRK | 74-125: 696.000000 HRK | 126-200: 680.000000 HRK | 201-275: 664.000000 HRK | 276-372: 640.000000 HRK | 373-378: 600.000000 HRK

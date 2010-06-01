@@ -1,0 +1,32 @@
+#@(seller_id)
+#(property_name) = (property_value)
+#Property format for key properties
+#price = (value) [currency = (defaultCurrency)]
+#includes = (purchasable_id [x(quantity) = x1]), ...
+#
+
+@1
+name = Konzum
+defaultCurrency = HRK
+!1
+price = 10
+includes = 2x 1, 3x 2
+!2
+price = 3
+includes = 1
+
+@2
+name = Diona
+defaultCurrency = HRK
+!3
+price = 3
+@3
+name = ebay seller#132515
+defaultCurrency = USD
+!4
+price = 0.1 USD
+includes = 1
+!5
+price = 1 EUR
+includes = 2
+
