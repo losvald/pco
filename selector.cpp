@@ -33,7 +33,8 @@ using namespace std;
 Selector::Selector(Market& market, const PurchasableData& purchasable_data)
 : market_(market), purchasable_data_(purchasable_data),
   total_disj_req_quantity_(0),
-  non_disj_constr_mapper_(0) {
+  non_disj_constr_mapper_(0),
+  worst_acceptable_price_(infinitePrice/2) {
 	selection_.clear();
 	//calculate max offer select limits if selection contains only that offer
 	vector<const PurchasableOffer*> offers = market.getAllOffers();
@@ -130,8 +131,8 @@ void Selector::setSelection(const Selection& selection) {
 
 	//backup first (because map will be modified)
 	vector< pair<PurchasableOffer, Quantity> > v;
-	v.reserve(selection_.offers().size());
-	FORC(it, selection_.offers()) {
+	v.reserve(selection.offers().size());
+	FORC(it, selection.offers()) {
 		v.push_back(make_pair(it->first, it->second));
 	}
 
@@ -151,6 +152,14 @@ void Selector::set_best_selection(const Selection& selection) {
 
 const Selection& Selector::best_selection() const {
 	return best_selection_;
+}
+
+Price Selector::worst_acceptable_price() const {
+	return worst_acceptable_price_;
+}
+
+void Selector::set_worst_acceptable_price(Price price) {
+	worst_acceptable_price_ = price;
 }
 
 bool Selector::updateBestSelection(const Selection& selection) {

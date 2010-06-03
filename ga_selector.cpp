@@ -214,8 +214,14 @@ bool GASelector::start(
 		return false;
 	}
 	bool status = state_->run();
+	setSelection(best_selection());
 	in_progress_ = false;
-	return status;
+	return status && isCurrentSelectionFeasible();
+}
+
+bool GASelector::isCurrentSelectionFeasible() const {
+	return FlowBasedSelector::isCurrentSelectionFeasible()
+	&& selection_.getTotalPrice() <= worst_acceptable_price();
 }
 
 const PurchasableOffer& GASelector::getOffer(int n) const {

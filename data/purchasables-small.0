@@ -4,11 +4,14 @@
 
 @1
 name = sendvic
+category = hrana
 @2
 name = sok
+category = pice
 @3
 name = slamka
+#nemora
 
 #@
 #name =
-#category =
+#(property) = (value)

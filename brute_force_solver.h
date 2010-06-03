@@ -35,7 +35,7 @@
 
 namespace brute_force {
 
-bool solve(Market& market, const std::string& filename);
+bool solve(Market& market, const std::string& filename,  Price price_limit);
 
 }
 

@@ -151,7 +151,12 @@ bool GreedySelector::start(const std::vector<BuyerRequest> & purchasable_request
 			bool met = false;
 			FORC(ndr, non_disj_requests_) {
 				if(!ndr->isMet() && o->meetsConstraint(ndr->constraint())) {
-					if(selectOffer(*o, 1) == 1) {
+					int q = selectOffer(*o, ndr->remainingUntilMet());
+					if(q > 0) {
+						cout << greedy_selector::MSG_TAG
+								<< "greedy SELECT: ";
+						cout << q << "x " << o->id() << endl;
+						ndr->incrementMetCount(q);
 						met = true;
 						break;
 					}
@@ -160,9 +165,6 @@ bool GreedySelector::start(const std::vector<BuyerRequest> & purchasable_request
 			if(!met) break;
 		}
 	}
-
-	cout << greedy_selector::MSG_TAG << "Done." << endl;
-	cout << "Best solution: " << endl << selection_;
 
 	return isCurrentSelectionFeasible();
 }

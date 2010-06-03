@@ -1,3 +1,3 @@
 HRK 1.0
-USD 5
-EUR 7.42
+USD 5.94
+EUR 7.26

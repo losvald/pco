@@ -8,9 +8,9 @@
 	<Genotype>
 		<Binary>
 			<Entry key="lbound">0</Entry>
-			<Entry key="ubound">71</Entry>
+			<Entry key="ubound">10</Entry>
 			<Entry key="precision">0</Entry>
-			<Entry key="dimension">8</Entry>
+			<Entry key="dimension">5</Entry>
 		</Binary>
 	</Genotype>
 

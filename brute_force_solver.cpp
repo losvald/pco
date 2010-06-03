@@ -43,7 +43,8 @@ using namespace std;
 
 namespace brute_force {
 
-bool solve(Market& market, const std::string& filename) {
+bool solve(Market& market, const std::string& filename,
+		Price price_limit) {
 
 	NoConstraint<Seller> seller_constr;
 	NoConstraint<Selection> selection_constr;
@@ -56,6 +57,7 @@ bool solve(Market& market, const std::string& filename) {
 	cout << StringUtils::to_string(reqs.begin(), reqs.end(), ",") << endl;
 
 	BruteForceSelector bfs(market, PurchasableData::instance());
+	bfs.set_worst_acceptable_price(price_limit);
 	if(bfs.start(reqs, seller_constr, selection_constr)) {
 		cout << "Found solution: \n" << endl;
 		cout << bfs.best_selection() << endl;

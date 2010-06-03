@@ -1,21 +1,24 @@
+#Format
+#Obavezno:
+#@	#obavezno na pocetku svake deklaracije
+#seller_id = (seller_id) #na kojeg prodavaca se odnose zalihe
+#purchasable_id = (purchasable_id) #kojeg proizvoda/usluge
+#quantity = (quantity) #kolicina proizvoda/usluge koju posjeduje taj prodavac
 @
 seller_id = 1
 purchasable_id = 1
 quantity = 10
+#prodavac s id-em 1 moze prodati proizvod/uslugu s id-em 2 najvise 7 puta
+#tj. raspolaze s 10 sendvica
+
 @
 seller_id = 1
 purchasable_id = 2
 quantity = 7
+#Raspolaze sa 7 sokova
+
 @
 seller_id = 1
 purchasable_id = 3
 quantity = 6
-@
-seller_id = 1
-purchasable_id = 4
-quantity = 7
-@
-seller_id = 1
-purchasable_id = 5
-quantity = 10
-
+#Raspolaze s 6 slamka

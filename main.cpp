@@ -30,6 +30,7 @@
 #include <ecf/ECF.h>
 
 #include "utils.h"
+#include "base_types.h"
 #include "market.h"
 #include "purchasable_data.h"
 #include "entity_io_utils.h"
@@ -80,7 +81,6 @@ void printVarMap( po::variables_map varMap ){
 */
 
 
-
 bool loadFiles(filename currencies, filename purchasables,
 		filename sellers, filename offers, filename supplies,
 		filename requests) {
@@ -107,14 +107,16 @@ bool loadFiles(filename currencies, filename purchasables,
 	return true;
 }
 
-bool runGA(string argv0, filename ga_param_file, filename requests_file) {
-	return ga::solve(market, requests_file, ga_param_file, argv0);
+bool runGA(string argv0, filename ga_param_file, filename requests_file,
+		Price price_limit) {
+	return ga::solve(market, requests_file, ga_param_file, argv0, price_limit);
 }
 
 void parseOptions( int ac, char** av ) {
 	string action="gensolve", algo;
 	filename currencies, purchasables, supplies, sellers, offers, requests, priceRanges;
 	filename ga_param;
+	Price price_limit = -1;
 	int seed=-1, numOffers, supplyMin=-1, supplyMax=-1;
 
 	po::options_description desc("Available options");
@@ -129,6 +131,7 @@ void parseOptions( int ac, char** av ) {
 		("requests-file,r"    , po::value<filename>(&requests)                , "requests input file")
 		("offers-file,o"	  , po::value<filename>(&offers)                  , "offers input file")
 		("ga-param-file,g"	  , po::value<filename>(&ga_param)                , "ga param input file")
+		("price-limit,l"      , po::value<Price>(&price_limit)                   , "limit")
 
 		("price-ranges-file,P", po::value<filename>(&priceRanges)             , "price ranges output file if generating")
 		("seed,S"               , po::value<int>(&seed)                       , "seed number")
@@ -276,22 +279,24 @@ void parseOptions( int ac, char** av ) {
 			cerr << "Failed to load input files" << endl;
 			exit(1);
 		}
+		if(price_limit == -1)
+			price_limit = infinitePrice;
 
 		if( algo == "greedy" ) {
 			cerr << "Running greedy\n";
-			greedy::solve2(market, requests);
+			greedy::solve2(market, requests, price_limit);
 		}
 		else if( algo == "greedy-fast" ) {
 			cerr << "Running greedy (fast version)\n";
-			greedy::solve(market, requests);
+			greedy::solve(market, requests, price_limit);
 		}
 		else if( algo == "ga" ) {
 			cerr << "Running ga\n";
-			runGA(av[0], ga_param, requests);
+			runGA(av[0], ga_param, requests, price_limit);
 		}
 		else if( algo == "bf" ) {
 			cerr << "Running bf\n";
-			brute_force::solve(market, requests);
+			brute_force::solve(market, requests, price_limit);
 		}
 		else if( algo == "manual" ) {
 			cerr << "Running manual selection\n";

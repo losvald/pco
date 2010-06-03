@@ -46,7 +46,8 @@ using namespace std;
 namespace ga {
 
 bool solve(Market& market, const string& requests_filename,
-		const std::string& param_file, const std::string& argv0) {
+		const std::string& param_file, const std::string& argv0,
+		Price price_limit) {
 
 	NoConstraint<Seller> seller_constr;
 	NoConstraint<Selection> selection_constr;
@@ -74,6 +75,7 @@ bool solve(Market& market, const string& requests_filename,
 
 	GASelector gas(market, PurchasableData::instance(),
 			param_file, argv0);
+	gas.set_worst_acceptable_price(price_limit);
 	if(gas.start(reqs, seller_constr, selection_constr)) {
 		cout << "Found solution: \n" << endl;
 		cout << gas.best_selection() << endl;
@@ -82,7 +84,6 @@ bool solve(Market& market, const string& requests_filename,
 	else {
 		cerr << "Failed to find solution with GA!" << endl;
 	}
-
 	return false;
 }
 

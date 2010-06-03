@@ -109,7 +109,8 @@ bool FlowBasedGreedySelector::start(const std::vector<BuyerRequest> & purchasabl
 //					cout << "Meets request: " << *r;
 					int q = selectOffer(*o, r->remainingUntilMet());
 					if(q > 0) {
-						cout << flow_based_greedy_selector::MSG_TAG << "greedy SELECT: ";
+						cout << flow_based_greedy_selector::MSG_TAG
+								<< "greedy SELECT: ";
 						cout << q << "x " << o->id() << endl;
 						r->incrementMetCount(q);
 						met = true;
@@ -129,7 +130,12 @@ bool FlowBasedGreedySelector::start(const std::vector<BuyerRequest> & purchasabl
 			bool met = false;
 			FORC(ndr, non_disj_requests_) {
 				if(!ndr->isMet() && o->meetsConstraint(ndr->constraint())) {
-					if(selectOffer(*o, 1) == 1) {
+					int q = selectOffer(*o, ndr->remainingUntilMet());
+					if(q > 0) {
+						cout << flow_based_greedy_selector::MSG_TAG
+								<< "greedy SELECT: ";
+						cout << q << "x " << o->id() << endl;
+						ndr->incrementMetCount(q);
 						met = true;
 						break;
 					}
@@ -140,9 +146,6 @@ bool FlowBasedGreedySelector::start(const std::vector<BuyerRequest> & purchasabl
 	}
 
 	updateBestSelection(selection());
-
-	cout << flow_based_greedy_selector::MSG_TAG << "Done." << endl;
-	cout << "Best solution: " << endl << selection_;
 
 	return isCurrentSelectionFeasible();
 }

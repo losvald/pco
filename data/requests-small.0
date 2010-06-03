@@ -1,11 +1,22 @@
+#Format zahtjeva
+#Obavezno:
+#@(request_id) #mora biti prva linija
+#(match-id | match-name | substr-name) = (value)
+#Opcionalno:
+#name = (request_name)
+#(property) = (value)
+
 @1
 name = Zahtjev: 3x sendvic
-substr-name = sendvic
+#bilo koja ponuda koji proizvod koji u nazivu sadrzi slovo i
+substr-name = i
 quantity = 3
 @2
 name = Zahtjev: 1x sok
+#trazi se tocno odredjeni proizvod, koji ima id jednak 2
 match-id = 2
 @3
 name = Bilo sto
+#posto nije specificirano nikakvo ogranicenje
 
 

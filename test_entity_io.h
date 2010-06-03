@@ -45,9 +45,6 @@ static const char* MSG_TAG = "[TEST] ";
 		EntityIOUtils::printCurrencies();
 	}
 
-	static void printPurchasables() {
-		EntityIOUtils::printPurchasables(PurchasableData::instance());
-	}
 	void savePurchasables() {
 		printf("testing output..\n");
 		EntityIOUtils::savePurchasables(DATA_DIR+"/foo_purchasables.out",

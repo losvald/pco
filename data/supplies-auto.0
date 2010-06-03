@@ -1,12 +1,16 @@
 @
 seller_id = 0
 purchasable_id = 1
-quantity = 9
+quantity = 689
 @
 seller_id = 0
 purchasable_id = 2
-quantity = 5
+quantity = 774
 @
 seller_id = 0
 purchasable_id = 3
-quantity = 6
+quantity = 541
+@
+seller_id = 0
+purchasable_id = 4
+quantity = 933

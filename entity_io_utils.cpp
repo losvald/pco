@@ -501,9 +501,9 @@ bool EntityIOUtils::saveOffers(const std::string& filename,
 			int cnt = purchasables.size();
 			FORC(it, purchasables) {
 				//if not last
-				fprintf(f, "%d%c %d", (*o)->getQuantity(*it),
+				fprintf(f, "%d %c%d", *it,
 						offer_ioconstants::PURCHASABLE_ID_QUANTITY_DELIMITERS[1],
-						*it);
+						(*o)->getQuantity(*it));
 				if(--cnt > 0) {
 					fprintf(f, "%s", offer_ioconstants::CONTENTS_DELIMITERS);
 				}

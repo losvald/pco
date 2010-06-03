@@ -35,8 +35,8 @@
 
 namespace greedy {
 
-void solve2(Market& market, const std::string& filename);
-void solve(Market& market, const std::string& filename);
+void solve2(Market& market, const std::string& filename, Price price_limit);
+void solve(Market& market, const std::string& filename,  Price price_limit);
 
 }
 

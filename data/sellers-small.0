@@ -1,7 +1,9 @@
-#
-#
+#Format
+#@(seller_id)
+#name = (seller_name)
+#defaultCurrency = (currency_code) #vidi currencies.txt
 
 @1
-name = Sendich bar "Marko"
+name = Sendwich bar "Marko"
 defaultCurrency = HRK
 

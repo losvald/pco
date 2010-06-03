@@ -29,6 +29,7 @@
 #ifndef SELECTOR_H_
 #define SELECTOR_H_
 
+#include "base_types.h"
 #include "time_counter.h"
 #include "market.h"
 #include "seller.h"
@@ -56,6 +57,7 @@ protected:
 	Constraint<Selection> selection_constraint_;
 	hash::RangeMapper<Id, Id> non_disj_constr_mapper_;
 	std::map<Id, Quantity> initial_select_limits_;
+	Price worst_acceptable_price_;
 public:
 	Selector(Market& market, const PurchasableData& purchasable_data);
 	Market& market() const;
@@ -67,8 +69,9 @@ public:
 			const Constraint<Selection>& selection_constraint) = 0;
 	virtual bool stop() = 0;
 	virtual bool isRunning() const;
-
 	virtual Quantity total_disj_req_quantity() const;
+	Price worst_acceptable_price() const;
+	void set_worst_acceptable_price(Price price);
 protected:
 	virtual Quantity selectOffer(const PurchasableOffer& offer, Quantity times = 1)
 	= 0;

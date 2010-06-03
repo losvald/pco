@@ -1,0 +1,58 @@
+Prerequisites:
+-instaliran ECF
+-instaliran Boost Library
+Preporucljivo:
+-UNIX okruzenje (nativno ili preko cygwin-a) - zbog raznih vec pripremljenih
+skripti
+
+1) Kompajliranje
+Otici u glavni direktorij, i pokrenuti make na sljedeci nacin:
+a) Pomocu makefile-a
+make all
+To ce izgenerirati izvrsni file "seminar"
+Napomena: kompajliranje moze potrajati
+b) Rucno
+Ako se kompajlira rucno, paziti da se ne izostave sljedece link opcije:
+-lecf -lboost_program_options-mt
+Npr. koristenjem GCC-a ovako se kompajlira:
+g++ *.cpp -o seminar -O3 -lecf -lboost_program_options-mt -Wall -Wno-deprecated
+
+2) Pokretanje programa
+Za popis opcija pokrenuti program s parametrom "--help", dakle ako smo u "data" direktoriju:
+../seminar --help
+
+Pokretanje postojecih primjera:
+./example1-bf.sh
+./example1-greedy.sh
+./example1-ga.sh
+./example2-bf.sh
+./example2-greedy.sh
+./example2-ga.sh
+-sufiks "bf" u nazivu skripte pokrece program koji rjesava s iscrpnom pretragom (brute force)
+-sufiks "greedy" u nazivu skripte pokrece program koji rjesava s pohlepnim algoritmom
+-sufiks "ga" u nazivu skripte pokrece program koji rjesava s genetskim algoritmom
+
+Pokretanje custom primjera:
+a) Direktno preko programa
+../seminar -c currencies.txt -p purchasables-example.1 -s sellers-example.1 -o offers-example.1 -u supplies-example.1 -r requests-example.1 -a solve -A ga -g parameters.txt
+b) Pomocu skripte run.sh (jednostavnije)
+Gornji naredba je identicna pozivu skripte "./run.sh -example.1 ga". Pri tom prefiski moraju biti kao u gornjem primjeru.
+
+Genetski algoritam:
+parametri se postimavaju na uobicajen nacin preko datoteke s parametrima. Skripte koriste "parameters.txt".
+Vazno: dimenzija Binary genotipa i granice se nemoraju ispuniti, one ce biti dinamicki odredjene kad se pokrene program. Tako promjenjeni parametri bit ce spremljeni u datoteku "ga-params.txt". Dakle, ta datoteka ne smije se koristiti kao ulazna.
+Opcijom -l moguce je zadati do koje cijene da genetski algoritam smatra rjesenje valjanim. Po defaultu to je neki jako veliki broj (reda velicine 10^18), no pazljivim odabirom moguce je poboljsati optimalnost rjesenja koje nadje genetski algoritam (iako je u vecini slucajeva dovoljno dobar default). U slucajevima da default ne nadje dobro rjesenje, pozeljno je staviti granicu koja je nekoliko puta veca od cijene koju nadje pohlepni algoritam.
+
+3) Automatsko generiranje ulaznih datoteka
+a) Direktno, preko programa
+../seminar -a generate -c currencies.txt -p purchasables-example.3 -P price-ranges-example.3 -s sellers-example.3 -o offers-example.3 -u supplies-example.3 -m 100 -M 200 -n 5
+Gornja naredba izgenerirat ce datoteke sellers-example.3, offers-example.3, supplies-example.3, tako da postoji 5 ponuda i jedan jedini prodavac na trzistu s zalihama proizvoda izmedju 100 i 200.
+Pomocu parametra -S moze se postaviti sidro (seed), pa ce se svaki puta izgenerirati iste datoteke ako se preda isto vrijednost sidra (u protivnom ce se koristiti sidro dobivenona temelju sistemskog sata i adrese pomocne varijable).
+b) Preko "gen.sh" skripte
+Ako postoje svi potrebni fileovi koji postuju format koji je zahtjevan u "run.sh" skripti (dakle offers(sufiks), sellers(sufiks) itd.), tada je gornja naredba ekvivalentna sljedecoj:
+./gen.sh -example.3 100 200 5
+
+4) Kopiranje svih ulaznih datoteka s odredjenim sufiksom
+Npr. ako zelimo stvoriti 3. primjer koji je slican drugom (*example.2 datoteke), to mozemo ovako uciniti:
+./copy.sh -example.2 -my-custom-example.0
+Nakon toga otvorimo sve fileove koji zavrsavaju s -my-custom-example.0 (ili koji smo vec naziv odabrali), te ih modificiramo ako zelimo.

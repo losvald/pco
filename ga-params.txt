@@ -17,7 +17,7 @@
 	<Registry>
 		<Entry key="randomizer.seed">0</Entry> 
 		<Entry key="population.size">30</Entry>
-		<Entry key="population.demes">15</Entry> <!-- number of demes (default: 1) -->
+		<Entry key="population.demes">30</Entry> <!-- number of demes (default: 1) -->
 		<Entry key="migration.number">1</Entry> <!-- number of individuals to be sent to another deme (default: 1) -->
 		<Entry key="mutation.indprob">0.8</Entry> <!-- individual mutation probability (regardless of the algorithm!) (default: 0.3) -->
 		<Entry key="term.stagnation">50</Entry>

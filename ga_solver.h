@@ -36,7 +36,8 @@
 namespace ga {
 
 bool solve(Market& market, const string& requests_filename,
-		const std::string& param_file, const std::string& argv0);
+		const std::string& param_file, const std::string& argv0,
+		 Price price_limit);
 
 }
 

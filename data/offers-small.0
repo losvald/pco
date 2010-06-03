@@ -1,10 +1,12 @@
-#@(offer_id)
-#(property_name) = (property_value)
-#Property format for key properties
+#Format
+#Obavezno:
+#!(offer_id) #mora biti prva linija u deklaraciji
 #seller_id = (seller_id)
 #price = (value) [currency = (defaultCurrency)]
 #includes = (purchasable_id [x(quantity) = x1]), ...
-#
+#Opcionalno:
+#(property_name) = (property_value)
+
 !1
 seller_id = 1
 name = sendvic
@@ -24,12 +26,15 @@ seller_id = 1
 name = sendvic + sok
 price = 15 HRK
 includes = 1, 2
+#veleprodajna cijena je 14 kn za 2 i 3 komada, a 13 kn za 4 ili vise
 wholesale_prices = 2-3: 14 HRK | 4+: 13 HRK
 
 !4
 seller_id = 1
 name = sok + slamka
+#cijena je 6 kn i 40 lipa
 price = 6.4 HRK
+#ukljuceni proizvodi su oni s id-evima 2 (jedamput) i 3 (isto jedamput iako nije naznaceno)
 includes = 2 x1, 3
 wholesale_prices = 3+: 5.9 HRK
 

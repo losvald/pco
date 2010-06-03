@@ -43,7 +43,7 @@ using namespace std;
 
 namespace greedy {
 
-void solve2(Market& market, const std::string& filename) {
+void solve2(Market& market, const std::string& filename, Price price_limit) {
 	NoConstraint<Seller> seller_constr;
 	NoConstraint<Selection> selection_constr;
 	vector<BuyerRequest> reqs;
@@ -55,13 +55,18 @@ void solve2(Market& market, const std::string& filename) {
 	cout << StringUtils::to_string(reqs.begin(), reqs.end(), ",") << endl;
 
 	FlowBasedGreedySelector fbgs(market, PurchasableData::instance());
-	if(!fbgs.start(reqs, seller_constr, selection_constr)) {
+	fbgs.set_worst_acceptable_price(price_limit);
+	if(fbgs.start(reqs, seller_constr, selection_constr)) {
+		cout << "Found solution: \n" << endl;
+		cout << fbgs.best_selection() << endl;
+	}
+	else {
 		cerr << "Failed to find solution with flow-based greedy" << endl;
 	}
 //	cout << gs.selection() << endl;
 }
 
-void solve(Market& market, const std::string& filename) {
+void solve(Market& market, const std::string& filename, Price price_limit) {
 	NoConstraint<Seller> seller_constr;
 	NoConstraint<Selection> selection_constr;
 	vector<BuyerRequest> reqs;
@@ -73,7 +78,12 @@ void solve(Market& market, const std::string& filename) {
 	cout << StringUtils::to_string(reqs.begin(), reqs.end(), ",") << endl;
 
 	GreedySelector gs(market, PurchasableData::instance());
-	if(!gs.start(reqs, seller_constr, selection_constr)) {
+	gs.set_worst_acceptable_price(price_limit);
+	if(gs.start(reqs, seller_constr, selection_constr)) {
+		cout << "Found solution: \n" << endl;
+		cout << gs.best_selection() << endl;
+	}
+	else {
 		cerr << "Failed to find solution with greedy" << endl;
 	}
 //	cout << gs.selection() << endl;

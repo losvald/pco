@@ -40,6 +40,7 @@ private:
 	StateP state_;
 	vector<const PurchasableOffer*> offers_;
 	bool in_progress_;
+
 public:
 	GASelector(Market& market, PurchasableData& purchasable_data,
 			const string& param_file, const string& argv0,
@@ -52,7 +53,8 @@ public:
 	const PurchasableOffer& getOffer(int n) const;
 
 	bool isInProgress() const;
-
+protected:
+	bool isCurrentSelectionFeasible() const;
 private:
 	int calcOfferBuyLimit();
 

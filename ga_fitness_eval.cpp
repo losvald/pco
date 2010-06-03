@@ -70,9 +70,20 @@ FitnessP GAFitnessEvalOp::evaluate(IndividualP individual)
 			selector_.updateBestSelection(selector_.selection());
 		}
 		else {
+			const int C = 100;
 			int flow = selector_.calcMaxFlow();
-	//		int total = selector_.total_disj_req_quantity();
-			value = infinitePrice - 100*flow*flow;
+			int total = selector_.total_disj_req_quantity();
+			value = selector_.worst_acceptable_price()+1
+					+ C*(total*total - flow*flow);
+
+			double d = 0;
+			for(uint i = 0; i < bin->realValue.size(); ++i) {
+				const PurchasableOffer& offer = selector_.getOffer(i);
+//				d += pow(selector_.selection().getOfferCount(offer), 2.0);
+				d += pow(selector_.getInitialSelectLimit(offer)
+						-selector_.selection().getOfferCount(offer), 2.0);
+			}
+			value += C - log(1+d);
 		}
 	}
 
